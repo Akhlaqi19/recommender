@@ -1,0 +1,30 @@
+h1 {
+	color: #0000FF;
+}
+
+h2 {
+	color: #FF0000;
+}
+
+#item {
+	opacity: 0.4;
+	filter: alpha(opacity = 50); /* For IE8 and earlier */
+}
+
+.title {
+	font-size: 16px;
+	color: black;
+}
+
+.item_image {
+	position: relative;
+}
+
+.item_caption {	
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 40px;
+	bottom: 0px;
+}
+}

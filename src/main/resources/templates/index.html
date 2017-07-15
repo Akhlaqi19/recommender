@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Recommender System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="webjars/jquery/3.1.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/style.css}"
+	href="../../css/style.css" />
+
+<link rel="stylesheet" th:href="@{/css/form-elements.css}"
+	href="../../css/form-elements.css" />
+
+<script type="text/javascript"
+	src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" th:src="@{/js/jquery-1.11.1.min.js}"
+	src="../../js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" th:src="@{/js/jquery.backstretch.min.js}"
+	src="../../js/jquery.backstretch.min.js"></script>
+
+<script type="text/javascript" th:src="@{/js/scripts.js}"
+	src="../../js/scripts.js"></script>
+</head>
+<body>
+	<div class="top-content">
+
+		<div class="inner-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 form-box">
+						<div class="form-top">
+							<div class="form-top-center">
+								<p>Enter your username and password to log on:</p>
+							</div>
+							<div style="color: red;">
+								<span th:if="${invalidCridential}">Invalid user and
+									password!</span>
+							</div>
+							<div class="form-top-right">
+								<i class="fa fa-key"></i>
+							</div>
+						</div>
+						<div class="form-bottom">
+							<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+							<form action="#" th:action="@{/login}" th:object="${post}"
+								method="post" class="login-form">
+								<div class="form-group">
+									Username: <input type="text" th:field="*{userName}"
+										class="form-username form-control" /> <span
+										style="color: red;" th:if="${#fields.hasErrors('userName')}"
+										th:errors="*{userName}">userName error message</span>
+								</div>
+								<div class="form-group">
+									Password:<input type="password" th:field="*{password}"
+										class="form-password form-control" /> <span
+										style="color: red;" th:if="${#fields.hasErrors('password')}"
+										th:errors="*{password}">password error message</span>
+								</div>
+								<button type="submit" class="btn">Sign in!</button>
+							</form>
+							<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+							<a th:href="@{/signup}" class="btn">Sing Up</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

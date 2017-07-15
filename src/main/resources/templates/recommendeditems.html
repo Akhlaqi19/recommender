@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Recommender System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="webjars/jquery/3.1.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+<script type="text/javascript"
+	src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Rated Items</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Recommended Items</a></li>
+					<li><a href="#about">All items</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off"></span>LogOut</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div th:each="item:${items}">
+			<div class="col-md-2 text-center well">
+				<div class="item_image">
+					<div>
+						<img alt="" th:src="@{/images/image.jpg}" width="200" height="150"
+							class="img-responsive" id="item"></img>
+					</div>
+					<div class="item_caption">
+						<span th:text="${item.name}" class="title">something</span>
+					</div>
+				</div>
+				<div>
+					<span th:text="${'Release:'+item.releaseDate}"></span>
+				</div>
+				<div>
+					<span>Est-Rating:</span> <span
+						th:text="${Est_Rate['__${item.id}__']}"></span>
+				</div>
+				<div>
+					<a th:href="${item.trailerURL}" target="_blank">Trailer</a>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
